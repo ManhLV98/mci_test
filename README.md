@@ -64,7 +64,14 @@ $ Create 6 file in Project(mci_test):
         + Redshift(STG)-> Redshift(DWH)
           - call public.proc_music_sample()
 ```
-![create_tb](images/create_tb.png)<br/>
+## Run project
+```
+$ run create_tb.py(init table in redshift):
+```
+![create_tb](images/create_tb.png)
+```
+$ run etl.py(load data):
+```
 ![etl_dwh](images/etl_dwh.png)
 ## Results
 ```
