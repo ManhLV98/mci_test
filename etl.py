@@ -1,6 +1,7 @@
 import configparser
 import redshift_connector
 from sql_queries import sql_queries
+from datetime import  datetime
 def get_info(name)->str:
     configParser = configparser.RawConfigParser()
     configFilePath = 'dwh.cfg'
@@ -17,15 +18,26 @@ conn = redshift_connector.connect(
   )
 cursor = conn.cursor()
 # load data from s3 -> stg
+start = datetime.now()
+print('start load table to STG: song_data')
 cursor.execute('truncate table public.song_data')
 conn.commit()
 cursor.execute(sql_queries['s3_to_redshift']['song_data'])
 conn.commit()
+end = datetime.now()
+print(f'Succeed: song_data.Time:{str(end - start)}')
+start = datetime.now()
+print('start load table to STG: log_data')
 cursor.execute('truncate table public.log_data')
 conn.commit()
 cursor.execute(sql_queries['s3_to_redshift']['log_data'])
 conn.commit()
+end = datetime.now()
+print(f'Succeed: log_data.Time:{str(end - start)}')
 # # load data from stg -> dwh
+start = datetime.now()
+print('start load data STG to DWH')
 cursor.execute(sql_queries['stg_to_dwh'])
 conn.commit()
-conn.close()
+end = datetime.now()
+print(f'Succeed:  STG to DWH.Time:{str(end - start)}')
