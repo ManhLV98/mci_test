@@ -1,25 +1,19 @@
-## ManhLV
-test something
-
-# Pre-requisites
-When you download the views, as a pre-requisite before using is to modify the [redshift_query_attribution_vw](source/redshift_views/redshift_query_attribution_vw.sql) script.
-Update the values as per the following based on your Amazon Redshift cluster configuration:
-
-* price_per_node_per_hour
-* daily_operation_hour
-* spectrum_price_per_tb
-* concurrency_price_per_second
-* cpu_rated_score 
-* disk_io_rated_score
-* execution_rated_score
-* daily_redshift_compute_cost
-![CTE redshift_cluster_node](images/test.png)
-
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
+## Project name: MCI TEST
+## Set up 
+1.Set up wsl2 in windown 10
+    ![CTE redshift_cluster_node](images/test.png)
+2.Install Pycharm
+3.Install Python3
+4.Install Pip3
+5.Install Env python
+6.Create 6 file:
+    - dwh.cfg: Info redshift and S3 role
+    - sql_queries: SQL in redshift
+    - test.ipynb: Test data from S3
+    - create_table: Create table in redshift
+    - etl: 
+        + Load data from s3->Redshift(STG)
+        + Redshift(STG)-> Redshift(DWH)
 ## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
+Author: ManhLV
 
