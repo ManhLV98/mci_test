@@ -66,6 +66,10 @@ $ Create 6 file in Project(mci_test):
 ```
 ## Run project
 ```
+$ jupyter notebook(test data from S3):
+```
+![create_tb](images/test_data.png)
+```
 $ run create_tb.py(init table in redshift):
 ```
 ![create_tb](images/create_tb.png)
