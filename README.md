@@ -73,6 +73,8 @@ $ run create_tb.py(init table in redshift):
 $ run etl.py(load data):
 ```
 ![etl_dwh](images/etl_dwh.png)
+## Diagram:
+![diagram](images/diagram.png)
 ## Results
 ```
 $ Table log_data:
